@@ -7,7 +7,7 @@ if (process.argv.length < 3) {
 
 const password = process.argv[2]
 
-const url = `mongodb+srv://shubhammaruti2006_db_user:shubham00@cluster0.qdo7gv2.mongodb.net/phonebookApp?`
+const url = `mongodb+srv://shubhammaruti2006_db_user:${password}@cluster0.qdo7gv2.mongodb.net/phonebookApp?`
 
 mongoose.set('strictQuery', false)
 
@@ -15,13 +15,13 @@ mongoose.connect(url, { family: 4 })
 
 const personSchema = new mongoose.Schema({
   name: String,
-  number: String
+  number: String,
 })
 
 const Person = mongoose.model('Person', personSchema)
 
 if (process.argv.length === 3) {
-  Person.find({}).then(persons => {
+  Person.find({}).then((persons) => {
     console.log('phonebook:')
     persons.forEach(person => {
       console.log(person.name, person.number)
