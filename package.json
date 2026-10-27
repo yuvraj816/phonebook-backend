@@ -13,7 +13,9 @@
   "license": "ISC",
   "packageManager": "pnpm@10.15.0",
   "dependencies": {
+    "dotenv": "^18.0.9",
     "express": "^5.2.1",
+    "mongoose": "^9.11.4",
     "morgan": "^1.12.1"
   }
 }
